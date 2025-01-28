@@ -1,58 +1,51 @@
-/* General Styles */
+/* General Styling */
 body, html {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'Arial', sans-serif;
   overflow: hidden;
 }
 
-.container {
-  position: relative;
+.background {
+  background: linear-gradient(to bottom, #ffecd2, #fcb69f);
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+  position: relative;
 }
 
-/* Background */
-.background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url('path_to_background_image.jpg') no-repeat center center/cover;
-  z-index: -1;
-}
-
-/* Envelope Styles */
+/* Envelope Styling */
 .envelope-container {
   position: relative;
+  width: 200px;
+  height: 150px;
   cursor: pointer;
 }
 
 .envelope {
-  width: 200px;
-  height: 150px;
-  background: #fff;
+  width: 100%;
+  height: 100%;
+  background: white;
   border: 2px solid #ff69b4;
   border-radius: 10px;
   position: relative;
-  transition: transform 0.5s;
 }
 
-.envelope-flap {
+.flap {
   width: 100%;
   height: 50%;
   background: #ff69b4;
   position: absolute;
   top: 0;
   left: 0;
+  transition: transform 0.5s ease-in-out;
   transform-origin: top;
-  transition: transform 0.5s;
 }
 
-.envelope-body {
+.body {
   width: 100%;
   height: 100%;
   display: flex;
@@ -61,61 +54,64 @@ body, html {
 }
 
 #tap-button {
-  font-size: 1.2em;
-  color: #fff;
+  font-size: 1em;
+  color: white;
   background-color: #ff69b4;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease-in-out;
 }
 
 #tap-button:hover {
   background-color: #ff85c1;
 }
 
-/* Message Card Styles */
-.message-container {
+/* Message Card Styling */
+.message {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 500px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   text-align: center;
+  z-index: 10;
+}
+
+.card {
+  width: 80%;
+  max-width: 400px;
+  background: white;
   padding: 20px;
-  opacity: 0;
-  transition: opacity 0.5s;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.message-card h1 {
-  font-size: 2em;
+.card h1 {
   color: #ff69b4;
+  font-size: 2em;
 }
 
-.message-card img {
-  width: 150px;
-  height: 150px;
+.card img {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   margin: 20px 0;
 }
 
-.message-card p {
-  font-size: 1.2em;
+.card p {
   color: #333;
+  font-size: 1.1em;
 }
 
-/* Balloon Animation */
+/* Balloons Animation */
 .balloons {
   position: absolute;
   bottom: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
+  z-index: 5;
 }
 
 .balloon {
@@ -123,8 +119,7 @@ body, html {
   height: 70px;
   background: #ff6f61;
   border-radius: 50%;
-  position: relative;
-  animation: riseUp 5s infinite;
+  animation: rise 5s infinite;
 }
 
 .balloon::after {
@@ -138,13 +133,21 @@ body, html {
   transform: translateX(-50%);
 }
 
-@keyframes riseUp {
-  0% { transform: translateY(100%); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-100%); opacity: 0; }
+@keyframes rise {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
 }
 
-/* Utility Classes */
+/* Hidden Utility */
 .hidden {
   display: none;
 }
