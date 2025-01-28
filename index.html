@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Sukriti Didi</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Sukriti Didi</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="balloons">
-            <!-- Balloons will be generated here -->
-        </div>
-        <div class="message">
-            <h1>Happy Birthday, Sukriti Didi!</h1>
-            <p>Wishing you a day filled with love, joy, and all the happiness you deserve. May your year ahead be as wonderful as you are!</p>
-        </div>
+  <div class="container">
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Balloons -->
+    <div class="balloons">
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Message Section -->
+    <div class="message hidden">
+      <h1>Happy Birthday, Sukriti Didi!</h1>
+      <p>
+        Wishing you a year filled with love, joy, and countless smiles. 
+        May your dreams come true and your days be as beautiful as you are.
+      </p>
+      <img src="./sukriti.jpg" alt="Sukriti Didi">
+      <p>With love, Danish</p>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="bottom">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Cartoon_Birthday_Cake.svg/1200px-Cartoon_Birthday_Cake.svg.png" alt="Cake" class="cake">
+      <h2 class="name">Sukriti Didi</h2>
+      <div class="envelope" onclick="openMessage()">
+        <p>Tap here</p>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
