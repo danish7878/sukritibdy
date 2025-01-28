@@ -8,34 +8,46 @@
 </head>
 <body>
   <div class="container">
-    <!-- Animated Background -->
+    <!-- Background -->
     <div class="background"></div>
 
+    <!-- Top Decorations -->
+    <div class="balloons-container">
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <h1 class="title">Happy Birthday, Sukriti Didi!</h1>
+      <p class="subtitle">Scroll down to open your surprise!</p>
+    </div>
+
     <!-- Envelope Section -->
-    <div class="envelope-container" onclick="openEnvelope()">
-      <div class="envelope">
-        <div class="envelope-flap"></div>
-        <div class="envelope-body">
-          <p>Tap Here</p>
-        </div>
+    <div class="envelope-container">
+      <div class="envelope" onclick="openMessage()">
+        <p>Tap Here</p>
       </div>
     </div>
 
-    <!-- Hidden Message -->
-    <div class="message-container hidden">
-      <div class="message-card">
+    <!-- Popup Message -->
+    <div class="popup hidden">
+      <div class="popup-content">
         <h1>Happy Birthday, Sukriti Didi!</h1>
-        <img src="Screenshot_2024-01-29-17-57-11-101_com.whatsapp~2.jpg" alt="Sukriti Didi">
-        <p>Wishing you a year full of joy, laughter, and countless beautiful memories! You are truly special, and this day is just as amazing as you are.</p>
+        <img src="./Screenshot_2024-01-29-17-57-11-101_com.whatsapp~2.jpg" alt="Sukriti Didi">
+        <p>
+          Wishing you a year full of joy, laughter, and countless beautiful memories!  
+          You are truly special, and this day is just as amazing as you are.  
+        </p>
         <p>With love, Danish</p>
       </div>
     </div>
 
-    <!-- Balloon Animations -->
-    <div class="balloons hidden">
-      <!-- Individual balloons can be added here -->
-    </div>
+    <!-- Animated Balloons -->
+    <div class="floating-balloons hidden"></div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
