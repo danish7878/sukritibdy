@@ -1,8 +1,13 @@
 // script.js
 function openMessage() {
-  const message = document.querySelector('.message');
-  message.style.display = 'block';
+  const popup = document.querySelector('.popup');
+  const balloons = document.querySelector('.floating-balloons');
 
-  const envelope = document.querySelector('.envelope');
-  envelope.style.display = 'none';
+  popup.classList.remove('hidden'); // Show popup
+  balloons.classList.remove('hidden'); // Start balloons animation
+
+  // Automatically hide balloons after 5 seconds
+  setTimeout(() => {
+    balloons.classList.add('hidden');
+  }, 5000);
 }
