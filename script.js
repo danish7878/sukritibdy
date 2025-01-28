@@ -1,8 +1,8 @@
-function openEnvelope() {
+document.getElementById('tap-button').addEventListener('click', function() {
   const envelope = document.querySelector('.envelope');
   const flap = document.querySelector('.envelope-flap');
   const messageContainer = document.querySelector('.message-container');
-  const balloons = document.querySelector('.balloons');
+  const balloonsContainer = document.querySelector('.balloons');
 
   // Animate envelope opening
   flap.style.transform = 'rotateX(-180deg)';
@@ -16,6 +16,11 @@ function openEnvelope() {
 
   // Release balloons
   setTimeout(() => {
-    balloons.classList.remove('hidden');
+    balloonsContainer.classList.remove('hidden');
+    releaseBalloons();
   }, 700);
-}
+});
+
+function releaseBalloons() {
+  const balloonsContainer = document.querySelector('.balloons');
+  const colors = ['#ff6f61', '#6b5b95', '#88b04b', '#f7cac9', '#92a13
