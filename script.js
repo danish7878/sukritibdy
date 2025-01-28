@@ -1,13 +1,21 @@
-// script.js
-function openMessage() {
-  const popup = document.querySelector('.popup');
-  const balloons = document.querySelector('.floating-balloons');
+function openEnvelope() {
+  const envelope = document.querySelector('.envelope');
+  const flap = document.querySelector('.envelope-flap');
+  const messageContainer = document.querySelector('.message-container');
+  const balloons = document.querySelector('.balloons');
 
-  popup.classList.remove('hidden'); // Show popup
-  balloons.classList.remove('hidden'); // Start balloons animation
+  // Animate envelope opening
+  flap.style.transform = 'rotateX(-180deg)';
+  envelope.style.transform = 'translateY(-20px)';
 
-  // Automatically hide balloons after 5 seconds
+  // Show message after envelope opens
   setTimeout(() => {
-    balloons.classList.add('hidden');
-  }, 5000);
+    messageContainer.style.opacity = '1';
+    messageContainer.classList.remove('hidden');
+  }, 500);
+
+  // Release balloons
+  setTimeout(() => {
+    balloons.classList.remove('hidden');
+  }, 700);
 }
