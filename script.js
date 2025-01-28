@@ -1,26 +1,31 @@
-document.getElementById('tap-button').addEventListener('click', function() {
-  const envelope = document.querySelector('.envelope');
-  const flap = document.querySelector('.envelope-flap');
-  const messageContainer = document.querySelector('.message-container');
-  const balloonsContainer = document.querySelector('.balloons');
+document.getElementById('tap-button').addEventListener('click', function () {
+  const flap = document.querySelector('.flap');
+  const message = document.querySelector('.message');
+  const balloons = document.querySelector('.balloons');
 
   // Animate envelope opening
   flap.style.transform = 'rotateX(-180deg)';
-  envelope.style.transform = 'translateY(-20px)';
 
-  // Show message after envelope opens
+  // Show the message card
   setTimeout(() => {
-    messageContainer.style.opacity = '1';
-    messageContainer.classList.remove('hidden');
+    message.classList.remove('hidden');
   }, 500);
 
-  // Release balloons
-  setTimeout(() => {
-    balloonsContainer.classList.remove('hidden');
-    releaseBalloons();
-  }, 700);
+  // Add balloons
+  balloons.classList.remove('hidden');
+  generateBalloons();
 });
 
-function releaseBalloons() {
+function generateBalloons() {
   const balloonsContainer = document.querySelector('.balloons');
-  const colors = ['#ff6f61', '#6b5b95', '#88b04b', '#f7cac9', '#92a13
+  const colors = ['#ff6f61', '#6b5b95', '#88b04b', '#f7cac9', '#92a8d1'];
+
+  for (let i = 0; i < 20; i++) {
+    const balloon = document.createElement('div');
+    balloon.className = 'balloon';
+    balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    balloon.style.animationDelay = `${Math.random() * 2}s`;
+    balloon.style.left = `${Math.random() * 100}%`;
+    balloonsContainer.appendChild(balloon);
+  }
+}
