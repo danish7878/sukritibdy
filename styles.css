@@ -2,23 +2,19 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Courier New', cursive;
-  height: 100%;
-  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .container {
   position: relative;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, #f8c0ff, #ff69b4);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
+  height: 200vh;
+  background: linear-gradient(to bottom, #ffe5f3, #ff69b4);
 }
 
+/* Background */
 .background {
   position: absolute;
   top: 0;
@@ -27,112 +23,151 @@ body, html {
   height: 100%;
   background: url('https://wallpaperaccess.com/full/3895455.jpg') no-repeat center/cover;
   z-index: -1;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
-/* Balloons */
-.balloons {
-  position: relative;
-  height: 30%;
+/* Balloons at the top */
+.balloons-container {
+  position: absolute;
+  top: 10px;
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
 .balloon {
-  width: 80px;
-  height: 100px;
+  width: 60px;
+  height: 80px;
   background: #ff6f61;
   border-radius: 50%;
   animation: float 5s ease-in-out infinite;
-  position: relative;
 }
 
-.balloon::before {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  width: 2px;
-  height: 80px;
-  background: #000;
-  transform: translateX(-50%);
-}
+.balloon:nth-child(2) { background: #ffc93c; }
+.balloon:nth-child(3) { background: #6a82fb; }
 
 @keyframes float {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-15px); }
   100% { transform: translateY(0); }
 }
 
-/* Bottom Section */
-.bottom {
-  position: relative;
-  width: 100%;
+/* Content */
+.content {
   text-align: center;
-  margin-top: 50px;
+  padding-top: 50px;
 }
 
-.cake {
-  width: 200px;
-  height: auto;
-}
-
-.name {
-  font-size: 2em;
+.title {
+  font-size: 3em;
   color: #fff;
-  text-shadow: 2px 2px 4px #000;
+  text-shadow: 2px 2px 5px #000;
+}
+
+.subtitle {
+  font-size: 1.5em;
+  color: #f8f8f8;
   margin-top: 10px;
+}
+
+/* Envelope */
+.envelope-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
 .envelope {
   width: 150px;
   height: 100px;
-  background: #f2f2f2;
-  border: 2px solid #ff69b4;
-  margin: 20px auto;
-  cursor: pointer;
+  background: #fff;
+  border: 3px solid #ff69b4;
   border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   position: relative;
 }
 
 .envelope p {
-  font-size: 1.2em;
-  color: #ff69b4;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ff69b4;
 }
 
-/* Message Section */
-.message {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.9);
+/* Popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.popup-content {
+  background: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
-  display: none;
+  animation: fadeIn 1s;
 }
 
-.message img {
+.popup-content h1 {
+  font-size: 2.5em;
+  color: #ff69b4;
+}
+
+.popup-content img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
-.message h1 {
-  font-size: 2.5em;
-  color: #ff69b4;
-  margin-bottom: 10px;
-}
-
-.message p {
+.popup-content p {
   font-size: 1.2em;
   color: #555;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Floating Balloons */
+.floating-balloons {
+  position: fixed;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 9;
+}
+
+.floating-balloons::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: balloonsUp 4s ease-in-out infinite;
+}
+
+@keyframes balloonsUp {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
+
+.hidden {
+  display: none;
 }
